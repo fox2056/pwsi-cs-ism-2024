@@ -1,0 +1,50 @@
+﻿@page
+@model labPWSI.Pages.Student_View.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Student.OsobaId" />
+            <div class="form-group">
+                <label asp-for="Student.Nazwisko" class="control-label"></label>
+                <input asp-for="Student.Nazwisko" class="form-control" />
+                <span asp-validation-for="Student.Nazwisko" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.Imie" class="control-label"></label>
+                <input asp-for="Student.Imie" class="form-control" />
+                <span asp-validation-for="Student.Imie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.Wiek" class="control-label"></label>
+                <input asp-for="Student.Wiek" class="form-control" />
+                <span asp-validation-for="Student.Wiek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.GroupId" class="control-label"></label>
+                <select asp-for="Student.GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+                <span asp-validation-for="Student.GroupId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
